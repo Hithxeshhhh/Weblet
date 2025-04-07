@@ -1,9 +1,12 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
 const HeroSection = () => {
-  return <section className="relative min-h-screen flex items-center py-20 px-4 overflow-hidden">
+  return (
+    <section className="relative min-h-screen flex items-center py-20 px-4 overflow-hidden">
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="floating-blob blob-purple w-[500px] h-[500px] absolute top-20 left-20 opacity-15"></div>
@@ -24,7 +27,7 @@ const HeroSection = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Don't build a site. <span className="text-neon-purple neon-glow">Rent one</span> that grows with you.
           </h1>
-          <p className="text-xl text-gray-300 mb-10">Beautiful, ready-to-launch websites for small businesses—live in 10 minutes.</p>
+          <p className="text-xl text-gray-300 mb-10">Beautiful, ready-to-launch websites for small businesses—live in 10 minutes.</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button className="bg-neon-purple text-white hover:bg-neon-purple/80 px-8 h-auto animate-pulse-glow text-lg py-[9px]">
@@ -81,6 +84,8 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

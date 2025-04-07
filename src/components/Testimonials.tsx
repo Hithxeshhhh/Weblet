@@ -3,48 +3,59 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 type Testimonial = {
   content: string;
   author: string;
   position: string;
-  company: string;
-  industry: string;
+  company?: string;
   avatar: string;
 };
 
 const testimonials: Testimonial[] = [
   {
-    content: "Weblet saved us thousands in development costs. We had our restaurant website up and running in just 2 days, complete with online ordering capabilities.",
-    author: "Sarah Johnson",
-    position: "Owner",
-    company: "The Green Plate",
-    industry: "Restaurant",
+    content: "stands out. The integrations are seamless. The workflow customization saves me hours every week.",
+    author: "David L.",
+    position: "Operations Lead",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100",
   },
   {
-    content: "As a freelance designer, I needed a professional portfolio without the hassle of coding it myself. Weblet's templates are stunning and incredibly customizable.",
-    author: "Michael Chen",
-    position: "UI/UX Designer",
-    company: "Freelance",
-    industry: "Creative",
-    avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100&h=100",
-  },
-  {
-    content: "Our e-commerce store was set up in under a week. The templates are optimized for conversions and the support team has been incredible with helping us customize everything.",
-    author: "Alicia Parker",
-    position: "Founder",
-    company: "Urban Threads",
-    industry: "E-commerce",
+    content: "stands out. The integrations are seamless. The workflow customization saves me hours every week.",
+    author: "Emily T.",
+    position: "Founder & CEO",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100",
   },
   {
-    content: "Weblet has been a game changer for our medical practice. Our patients can now book appointments online and access their records securely.",
-    author: "Dr. James Wilson",
-    position: "Director",
-    company: "CityHealth Clinic",
-    industry: "Medical",
+    content: "stands out. The integrations are seamless. The workflow customization saves me hours every week.",
+    author: "Samantha R.",
+    position: "Product Manager",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100",
+  },
+  {
+    content: "stands out. The integrations are seamless. The workflow customization saves me hours every week.",
+    author: "James K.",
+    position: "Marketing Director",
+    avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100&h=100",
+  },
+  {
+    content: "stands out. The integrations are seamless. The workflow customization saves me hours every week.",
+    author: "Carlos M.",
+    position: "IT Specialist",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100",
+  },
+  {
+    content: "stands out. The integrations are seamless. The workflow customization saves me hours every week.",
+    author: "Jessica M.",
+    position: "Team Lead",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&h=100",
   },
 ];
 
@@ -66,7 +77,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 px-4 bg-dark-300">
+    <section className="py-24 px-4 bg-dark-400/50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <motion.h2 
@@ -76,7 +87,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Client <span className="text-neon-cyan">Testimonials</span>
+            What Our <span className="text-neon-cyan">Clients</span> Say
           </motion.h2>
           <motion.p 
             className="text-gray-400 max-w-2xl mx-auto"
@@ -85,74 +96,49 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            See what our clients have to say about their experience
+            Don't take our word for it — hear from our clients
           </motion.p>
         </div>
         
-        <div className="relative">
-          <motion.div 
-            className="flex space-x-4 overflow-x-auto scrollbar-none pb-6"
-            ref={sliderRef}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="min-w-[300px] md:min-w-[400px] flex-shrink-0 glass rounded-xl p-6 border border-white/10"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              >
-                <div className="mb-4">
-                  <svg className="w-8 h-8 text-neon-cyan opacity-50" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                  </svg>
-                </div>
-                
-                <p className="text-gray-200 mb-6">{testimonial.content}</p>
-                
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.author}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-gray-400">
-                      {testimonial.position}, {testimonial.company}
-                    </p>
-                    <p className="text-xs text-neon-cyan mt-1">{testimonial.industry}</p>
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <motion.div
+                  className="h-full glass rounded-lg p-6 flex flex-col"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  <div className="flex items-center mb-6">
+                    <Avatar className="h-12 w-12 mr-4 border border-white/10">
+                      <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
+                      <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h4 className="font-semibold text-lg">{testimonial.author}</h4>
+                      <p className="text-gray-400 text-sm">{testimonial.position}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                  
+                  <p className="text-gray-300 flex-grow">"{testimonial.content}"</p>
+                </motion.div>
+              </CarouselItem>
             ))}
-          </motion.div>
-          
+          </CarouselContent>
           <div className="flex justify-center mt-8 gap-4">
-            <Button 
-              variant="outline" 
-              size="icon" 
-              className="rounded-full border-gray-700 hover:bg-dark-200"
-              onClick={() => scroll('left')}
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              className="rounded-full border-gray-700 hover:bg-dark-200"
-              onClick={() => scroll('right')}
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
+            <CarouselPrevious className="relative inset-0 translate-y-0 rounded-full border-gray-700 hover:bg-dark-200" />
+            <CarouselNext className="relative inset-0 translate-y-0 rounded-full border-gray-700 hover:bg-dark-200" />
           </div>
-        </div>
+        </Carousel>
       </div>
     </section>
   );
