@@ -27,7 +27,7 @@ const HeroSection = () => {
           <p className="text-xl text-gray-300 mb-10">Beautiful, ready-to-launch websites for small businesses—live in 10 minutes.</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-neon-purple text-white hover:bg-neon-purple/80 text-lg px-8 py-6 h-auto animate-pulse-glow">
+            <Button className="bg-neon-purple text-white hover:bg-neon-purple/80 px-8 h-auto animate-pulse-glow text-lg py-[9px]">
               Browse Templates
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
