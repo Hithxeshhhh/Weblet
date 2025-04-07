@@ -1,18 +1,13 @@
-
 import React from 'react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-dark-500 border-t border-gray-800 pt-16 pb-8 px-4">
+  return <footer className="bg-dark-500 border-t border-gray-800 pt-16 pb-8 px-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <a href="/" className="text-2xl font-bold text-white flex items-center mb-4">
               Web<span className="text-neon-purple">let</span>
             </a>
-            <p className="text-gray-400 mb-4">
-              Beautiful websites for small businesses—live in 48 hours.
-            </p>
+            <p className="text-gray-400 mb-4">Beautiful websites for small businesses live in 10 minutes.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-neon-purple transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -84,8 +79,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
