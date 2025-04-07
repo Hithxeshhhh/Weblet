@@ -11,6 +11,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 type Testimonial = {
   content: string;
@@ -60,21 +62,16 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (sliderRef.current) {
-      const { scrollLeft, clientWidth } = sliderRef.current;
-      const scrollTo = direction === 'left' 
-        ? scrollLeft - clientWidth + 100 
-        : scrollLeft + clientWidth - 100;
-        
-      sliderRef.current.scrollTo({
-        left: scrollTo,
-        behavior: 'smooth',
-      });
-    }
-  };
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: "start",
+      dragFree: true 
+    },
+    [
+      Autoplay({ delay: 3000, stopOnInteraction: false })
+    ]
+  );
 
   return (
     <section className="py-24 px-4 bg-dark-400/50">
@@ -100,16 +97,13 @@ const Testimonials = () => {
           </motion.p>
         </div>
         
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
             {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <div 
+                key={index} 
+                className="flex-none w-full md:w-1/2 lg:w-1/3 pl-4"
+              >
                 <motion.div
                   className="h-full glass rounded-lg p-6 flex flex-col"
                   initial={{ opacity: 0, x: 50 }}
@@ -131,14 +125,31 @@ const Testimonials = () => {
                   
                   <p className="text-gray-300 flex-grow">"{testimonial.content}"</p>
                 </motion.div>
-              </CarouselItem>
+              </div>
             ))}
-          </CarouselContent>
-          <div className="flex justify-center mt-8 gap-4">
-            <CarouselPrevious className="relative inset-0 translate-y-0 rounded-full border-gray-700 hover:bg-dark-200" />
-            <CarouselNext className="relative inset-0 translate-y-0 rounded-full border-gray-700 hover:bg-dark-200" />
           </div>
-        </Carousel>
+        </div>
+
+        <div className="flex justify-center mt-8 gap-4">
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="rounded-full border-gray-700 hover:bg-dark-200"
+            onClick={() => emblaApi?.scrollPrev()}
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span className="sr-only">Previous</span>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="rounded-full border-gray-700 hover:bg-dark-200"
+            onClick={() => emblaApi?.scrollNext()}
+          >
+            <ChevronRight className="h-4 w-4" />
+            <span className="sr-only">Next</span>
+          </Button>
+        </div>
       </div>
     </section>
   );
