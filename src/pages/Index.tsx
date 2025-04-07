@@ -1,12 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import IndustrySection from '../components/IndustrySection';
+import HowItWorks from '../components/HowItWorks';
+import TemplateShowcase from '../components/TemplateShowcase';
+import PricingPlans from '../components/PricingPlans';
+import Features from '../components/Features';
+import Testimonials from '../components/Testimonials';
+import FaqSection from '../components/FaqSection';
+import CtaSection from '../components/CtaSection';
+import Footer from '../components/Footer';
+
+// Import framer-motion to use animations
+import { motion } from 'framer-motion';
 
 const Index = () => {
+  useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-dark-400 text-white overflow-x-hidden">
+      <Header />
+      <HeroSection />
+      <IndustrySection />
+      <HowItWorks />
+      <TemplateShowcase />
+      <PricingPlans />
+      <Features />
+      <Testimonials />
+      <FaqSection />
+      <CtaSection />
+      <Footer />
     </div>
   );
 };
