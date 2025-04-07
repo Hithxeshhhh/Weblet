@@ -1,16 +1,8 @@
-
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
@@ -62,15 +54,22 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials = () => {
+  const autoplayPlugin = Autoplay({
+    delay: 2000,
+    stopOnInteraction: false,
+    stopOnMouseEnter: false,
+    playOnInit: true
+  });
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
       align: "start",
-      dragFree: true 
+      dragFree: true,
+      slidesToScroll: 1,
+      speed: 5,
     },
-    [
-      Autoplay({ delay: 3000, stopOnInteraction: false })
-    ]
+    [autoplayPlugin]
   );
 
   return (
@@ -136,6 +135,7 @@ const Testimonials = () => {
             size="icon" 
             className="rounded-full border-gray-700 hover:bg-dark-200"
             onClick={() => emblaApi?.scrollPrev()}
+            aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-4 w-4" />
             <span className="sr-only">Previous</span>
@@ -145,6 +145,7 @@ const Testimonials = () => {
             size="icon" 
             className="rounded-full border-gray-700 hover:bg-dark-200"
             onClick={() => emblaApi?.scrollNext()}
+            aria-label="Next testimonial"
           >
             <ChevronRight className="h-4 w-4" />
             <span className="sr-only">Next</span>
