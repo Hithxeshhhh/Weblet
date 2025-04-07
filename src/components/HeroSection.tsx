@@ -62,7 +62,7 @@ const HeroSection = () => {
               </div>
               <div className="h-full bg-gradient-to-b from-dark-200/50 to-dark-300/50 backdrop-blur-sm">
                 <div className="animate-wave">
-                  <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200" alt="Website Template Preview" className="w-full opacity-90 object-cover" />
+                  <img src="/lovable-uploads/d30dd4f5-91db-4f2f-a832-5572ac4a88ae.png" alt="Website Template Preview" className="w-full opacity-90 object-cover" />
                 </div>
               </div>
             </div>
@@ -72,14 +72,14 @@ const HeroSection = () => {
           <div className="absolute -bottom-10 -left-10 w-64 h-44 rounded-lg overflow-hidden transform -rotate-6 animate-float">
             <div className="glass h-full border border-white/20 shadow-lg overflow-hidden">
               <div className="h-4 bg-dark-400/80 border-b border-gray-800/50"></div>
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400" alt="Mobile Template Preview" className="w-full h-full object-cover opacity-80" />
+              <img src="/lovable-uploads/d30dd4f5-91db-4f2f-a832-5572ac4a88ae.png" alt="Mobile Template Preview" className="w-full h-full object-cover opacity-80" />
             </div>
           </div>
           
           <div className="absolute -bottom-6 -right-6 w-44 h-64 rounded-lg overflow-hidden transform rotate-6 animate-float delay-300">
             <div className="glass h-full border border-white/20 shadow-lg overflow-hidden">
               <div className="h-4 bg-dark-400/80 border-b border-gray-800/50"></div>
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400" alt="Tablet Template Preview" className="w-full h-full object-cover opacity-80" />
+              <img src="/lovable-uploads/d30dd4f5-91db-4f2f-a832-5572ac4a88ae.png" alt="Tablet Template Preview" className="w-full h-full object-cover opacity-80" />
             </div>
           </div>
         </motion.div>
