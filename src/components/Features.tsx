@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { 
   Zap, 
   DollarSign, 
-  WrenchScrewdriver, 
+  Wrench, 
   Cpu, 
   HardDrive
 } from 'lucide-react';
@@ -21,7 +21,7 @@ const features = [
     description: 'Pay only for what you use with transparent monthly subscription plans.'
   },
   {
-    icon: <WrenchScrewdriver className="h-6 w-6" />,
+    icon: <Wrench className="h-6 w-6" />,
     title: 'Maintenance-Free',
     description: 'All updates, security patches, and performance optimizations included.'
   },
