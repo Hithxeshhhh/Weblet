@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 const Footer = () => {
   return <footer className="bg-dark-500 border-t border-gray-800 pt-16 pb-8 px-4">
       <div className="container mx-auto">
@@ -49,6 +50,7 @@ const Footer = () => {
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
               <li><a href="#faq" className="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+              <li><a href="https://forms.gle/WKsiJXQaTbuxRh1JA" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-white transition-colors">Write a Review</a></li>
             </ul>
           </div>
           

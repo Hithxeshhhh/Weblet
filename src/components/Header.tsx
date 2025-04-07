@@ -1,7 +1,7 @@
-
-import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
+import React, { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
 import {
   Sheet,
   SheetContent,
@@ -37,7 +37,7 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <a href="/" className="text-2xl font-bold text-white flex items-center">
-            Web<span className="text-neon-purple">let</span>
+            Weblet
           </a>
         </div>
 
@@ -48,6 +48,7 @@ const Header = () => {
           <a href="#pricing" className="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a>
           <a href="#how-it-works" className="text-sm text-gray-300 hover:text-white transition-colors">How It Works</a>
           <a href="#contact" className="text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+          <button className="bg-red-500 rounded-md px-2 py-2 "><a href="https://forms.gle/WKsiJXQaTbuxRh1JA" className="text-lg text-white hover:text-black" target="_blank">Write a review</a></button>
         </nav>
 
         <div className="hidden md:block">
@@ -70,7 +71,8 @@ const Header = () => {
                 <a href="#templates" className="text-lg text-gray-200 hover:text-white">Templates</a>
                 <a href="#pricing" className="text-lg text-gray-200 hover:text-white">Pricing</a>
                 <a href="#how-it-works" className="text-lg text-gray-200 hover:text-white">How It Works</a>
-                <a href="#contact" className="text-lg text-gray-200 hover:text-white">Contact</a>
+                <a href="#contact" className="text-lg text-gray-200 hover:text-white">Contacts</a>
+                
                 <Button className="w-full bg-neon-purple text-white hover:bg-neon-purple/80 btn-glow">
                   Start Free Trial
                 </Button>
